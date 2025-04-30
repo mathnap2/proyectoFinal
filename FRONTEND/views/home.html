@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Title</title>
+        <!-- Required meta tags -->
+        <meta charset="utf-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no"
+        />
+
+        <!-- Bootstrap CSS v5.2.1 -->
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+            crossorigin="anonymous"
+        />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+        <style>
+            .navbar-nav .nav-link {
+                transition: all 0.3s ease; /* Animación suave */
+            }
+        
+            .navbar-nav .nav-link:hover {
+                text-decoration: underline;
+                color: black;
+                transform: scale(1.05); /* Hace un mini zoom */
+                cursor: pointer;
+            }
+            
+            .fade-in {
+                opacity: 0;
+                transform: translateY(20px);
+                transition: opacity 1s ease-out, transform 0.3s ease-out;
+            }
+
+            .fade-in.visible {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            .social-icons {
+                margin-top: 60px;
+                display: flex;
+                justify-content: center;
+                gap: 25px;
+                font-size: 22px;
+            }
+
+            .social-icons a {
+                color: #000;
+                text-decoration: none;
+            }s
+        </style>
+        
+    </head>
+
+    <body>
+        <div class="announcement-bar bg-dark text-white text-center py-2" style="font-size: 14px;">
+            ¡Envíos gratis en compras mayores a $349! 🚚🔥
+        </div>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light py-3 flex-column">
+            <!-- Línea superior: lupa, logo, íconos -->
+            <div class="container d-flex justify-content-between align-items-center w-100">
+                <!-- Ícono de búsqueda -->
+                <div class="d-flex align-items-center">
+                    <a href="#" class="nav-link">
+                        <i class="fa-solid fa-magnifying-glass" style="font-size: 150%;"></i>
+                    </a>
+                </div>
+        
+                <!-- Logo en el centro -->
+                <a class="navbar-brand mx-auto" href="#" style="font-weight: bold; font-size: 24px;">CONPISCUO</a>
+        
+                <!-- Íconos + botón hamburguesa -->
+                <div class="d-flex align-items-center">
+                    <a href="#" class="nav-link me-2">
+                        <i class="fa-solid fa-user" style="font-size: 150%;"></i>
+                    </a>
+                    <a href="#" class="nav-link me-3">
+                        <i class="fa-solid fa-cart-shopping" style="font-size: 150%;"></i>
+                    </a>
+        
+                    <!-- Botón hamburguesa (visible solo en pantallas pequeñas) -->
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
+            </div>
+        
+            <!-- Línea inferior: menú de navegación -->
+            <div class="container w-100">
+                <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                    <ul class="navbar-nav text-center">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Todos los Productos</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Categorías</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Categoría 1</a></li>
+                                <li><a class="dropdown-item" href="#">Categoría 2</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Tallas</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Talla S</a></li>
+                                <li><a class="dropdown-item" href="#">Talla M</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        
+        <div style="position: relative; width: 100%; text-align: center; color: white;">
+            <!-- Imagen de fondo -->
+            <img
+              src="https://uwaterloo.ca/news/sites/ca.news/files/styles/feature_large/public/perry-merrity-ii-gprji5r4rak-unsplash.jpg?itok=0Ert-3zu"
+              style="width: 100%; height: auto; display: block;"
+              alt="Imagen de fondo"
+            >
+          
+            <!-- Capa con texto y botón -->
+            <div style="
+              position: absolute;
+              top: 80%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+            ">
+              <h2 style="font-weight: bold; font-size: 2rem; text-shadow: 1px 1px 5px rgba(0,0,0,0.6);">
+                ¿Clásico, Vintage o Streetwear?
+              </h2>
+              <a href="#" style="
+                display: inline-block;
+                margin-top: 15px;
+                padding: 10px 25px;
+                background-color: white;
+                color: black;
+                border-radius: 8px;
+                text-decoration: none;
+                font-weight: 500;
+                box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+                transition: background-color 0.3s ease;
+              " onmouseover="this.style.backgroundColor='#f0f0f0'" onmouseout="this.style.backgroundColor='white'">
+                Ver Tienda
+              </a>
+            </div>
+          </div>
+          <section class="container my-5">
+            <h3 class="mb-4">Recién agregados</h3>
+            <div class="row row-cols-2 row-cols-md-4 g-4" >
+          
+              <!-- Producto 1 -->
+              <div class="col fade-in">
+                <div class="card border-0">
+                  <img src="URL_IMAGEN_1" class="card-img-top" alt="All Star Game MLB 2006 L">
+                  <div class="card-body px-0">
+                    <p class="mb-1">All Star Game MLB 2006 L</p>
+                    <strong>$ 249.00 MXN</strong>
+                  </div>
+                </div>
+              </div>
+          
+              <!-- Producto 2 - Agotado -->
+              <div class="col fade-in">
+                <div class="card border-0 position-relative">
+                  <img src="URL_IMAGEN_2" class="card-img-top" alt="Hoodie Carhartt talla L">
+                  <!-- Etiqueta Agotado -->
+                  <span class="badge bg-dark position-absolute top-0 start-0 m-2">Agotado</span>
+                  <div class="card-body px-0">
+                    <p class="mb-1">Hoodie Carhartt talla L</p>
+                    <strong>$ 899.00 MXN</strong>
+                  </div>
+                </div>
+              </div>
+          
+              <!-- Producto 3 -->
+              <div class="col fade-in">
+                <div class="card border-0">
+                  <img src="URL_IMAGEN_3" class="card-img-top" alt="Carhartt Force Pocket tee talla L">
+                  <div class="card-body px-0">
+                    <p class="mb-1">Carhartt Force Pocket tee talla L</p>
+                    <strong>$ 399.00 MXN</strong>
+                  </div>
+                </div>
+              </div>
+          
+              <!-- Producto 4 -->
+              <div class="col fade-in">
+                <div class="card border-0">
+                  <img src="URL_IMAGEN_4" class="card-img-top" alt="Independent Impermeable M">
+                  <div class="card-body px-0">
+                    <p class="mb-1">Independent - Impermeable L - M</p>
+                    <strong>$ 799.00 MXN</strong>
+                  </div>
+                </div>
+              </div>
+          
+              <!-- Agrega más productos duplicando el bloque .col -->
+              <div class="col fade-in">
+                <div class="card border-0">
+                  <img src="URL_IMAGEN_1" class="card-img-top" alt="All Star Game MLB 2006 L">
+                  <div class="card-body px-0">
+                    <p class="mb-1">All Star Game MLB 2006 L</p>
+                    <strong>$ 249.00 MXN</strong>
+                  </div>
+                </div>
+              </div>
+          
+              <!-- Producto 2 - Agotado -->
+              <div class="col fade-in">
+                <div class="card border-0 position-relative">
+                  <img src="URL_IMAGEN_2" class="card-img-top" alt="Hoodie Carhartt talla L">
+                  <!-- Etiqueta Agotado -->
+                  <span class="badge bg-dark position-absolute top-0 start-0 m-2">Agotado</span>
+                  <div class="card-body px-0">
+                    <p class="mb-1">Hoodie Carhartt talla L</p>
+                    <strong>$ 899.00 MXN</strong>
+                  </div>
+                </div>
+              </div>
+          
+              <!-- Producto 3 -->
+              <div class="col fade-in">
+                <div class="card border-0">
+                  <img src="URL_IMAGEN_3" class="card-img-top" alt="Carhartt Force Pocket tee talla L">
+                  <div class="card-body px-0">
+                    <p class="mb-1">Carhartt Force Pocket tee talla L</p>
+                    <strong>$ 399.00 MXN</strong>
+                  </div>
+                </div>
+              </div>
+          
+              <!-- Producto 4 -->
+              <div class="col fade-in">
+                <div class="card border-0">
+                  <img src="URL_IMAGEN_4" class="card-img-top" alt="Independent Impermeable M">
+                  <div class="card-body px-0">
+                    <p class="mb-1">Independent - Impermeable L - M</p>
+                    <strong>$ 799.00 MXN</strong>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-tiktok"></i></a>
+            <a href="#"><i class="fab fa-pinterest"></i></a>
+        </div>
+       
+        <script
+            src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+            integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+            crossorigin="anonymous"
+        ></script>
+
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+            integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+            crossorigin="anonymous"
+        ></script>
+        <script>
+            const observer = new IntersectionObserver((entries) => {
+              entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                  entry.target.classList.add('visible');
+                  // Si solo quieres que se active una vez:
+                  observer.unobserve(entry.target);
+                }
+              });
+            });
+          
+            document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+          </script>
+          
+    </body>
+</html>
