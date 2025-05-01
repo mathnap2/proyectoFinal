@@ -22,6 +22,22 @@
 
         <link rel="stylesheet" href="../assets/style.css">
 
+        <script>
+            function toggleForms(){
+                let form_login = document.getElementById('formLogin'),
+                form_register = document.getElementById('formRegister');
+            
+                if(form_register.style.display == 'none'){
+                    form_login.style.display = 'none';
+                    form_register.style.display = 'block';
+                }
+                else{
+                    form_login.style.display = 'block';
+                    form_register.style.display = 'none';
+                }
+            }
+        </script>
+        
     </head>
 
     <body>
@@ -89,16 +105,28 @@
         </nav>
 
     <div class="login-container">
-        <h2>Inicio de sesión</h2>
-        <form>
-        <input type="email" placeholder="Correo electrónico" required>
-        <input type="password" placeholder="Contraseña" required>
-        <a href="#" class="forgot-password">¿Olvidaste tu contraseña?</a>
-        <button type="submit" class="login-button">Iniciar sesión</button>
+        
+        <form id="formLogin" action="./home.html">
+            <h2>Inicio de sesión</h2>
+            <input type="email" placeholder="Correo electrónico" required>
+            <input type="password" placeholder="Contraseña" required>
+            <a href="#" class="forgot-password">¿Olvidaste tu contraseña?</a>
+            <button type="submit" class="login-button">Iniciar sesión</button>
+            <p class="below-button" onclick="toggleForms()">Crear cuenta</p>
         </form>
-        <a href="#" class="create-account">Crear cuenta</a>
+        <form id="formRegister" action="javascript:alert('Registro exitoso!')" style="display: none;">
+            <h2>Crear cuenta</h2>
+            <input type="text" placeholder="Nombre" required>
+            <input type="email" placeholder="Correo electrónico" required>
+            <input type="password" placeholder="Contraseña" required>
+            <input type="password" placeholder="Confirmar contraseña" required>
+            <button type="submit" class="login-button">Crear cuenta</button>
+            <p class="below-button" onclick="toggleForms()">Iniciar sesion</p>
+        </form>
+        
     </div>
 
+    <hr style="margin-top: 50px;">
     <div class="social-icons">
         <a href="#"><i class="fab fa-facebook"></i></a>
         <a href="#"><i class="fab fa-instagram"></i></a>

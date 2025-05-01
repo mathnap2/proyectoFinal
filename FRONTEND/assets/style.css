@@ -51,7 +51,8 @@ h2 {
 }
 
 input[type="email"],
-input[type="password"] {
+input[type="password"],
+input[type="text"] {
     width: 100%;
     padding: 12px;
     margin: 10px 0;
@@ -79,12 +80,19 @@ input[type="password"] {
     margin-top: 20px;
 }
 
-.create-account {
+.below-button {
     display: block;
     margin-top: 15px;
     font-size: 14px;
     text-decoration: none;
     color: #333;
+}
+
+.below-button:hover {
+    text-decoration: underline;
+    color: black;
+    transform: scale(1.05); /* Hace un mini zoom */
+    cursor: pointer;
 }
 
 .social-icons {
