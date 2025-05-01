@@ -27,11 +27,6 @@
     font-size: 22px;
 }
 
-.social-icons a {
-    color: #000;
-    text-decoration: none;
-}
-
 body {
     font-family: sans-serif;
     margin: 0;
@@ -171,4 +166,11 @@ footer {
     .copyright {
     font-size: 10px;
     }
+}
+
+.filters{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
 }

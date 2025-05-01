@@ -20,24 +20,7 @@
         <title>Inicio de sesión</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-        <link rel="stylesheet" href="../assets/style.css">
-
-        <script>
-            function toggleForms(){
-                let form_login = document.getElementById('formLogin'),
-                form_register = document.getElementById('formRegister');
-            
-                if(form_register.style.display == 'none'){
-                    form_login.style.display = 'none';
-                    form_register.style.display = 'block';
-                }
-                else{
-                    form_login.style.display = 'block';
-                    form_register.style.display = 'none';
-                }
-            }
-        </script>
-        
+        <link rel="stylesheet" href="../assets/style.css">        
     </head>
 
     <body>
@@ -104,27 +87,39 @@
             </div>
         </nav>
 
-        <div class="login-container">
-        
-            <form id="formLogin" action="./home.html">
-                <h2>Inicio de sesión</h2>
-                <input type="email" placeholder="Correo electrónico" required>
-                <input type="password" placeholder="Contraseña" required>
-                <a href="#" class="forgot-password">¿Olvidaste tu contraseña?</a>
-                <button type="submit" class="login-button">Iniciar sesión</button>
-                <p class="below-button" onclick="toggleForms()">Crear cuenta</p>
-            </form>
-            <form id="formRegister" action="javascript:alert('Registro exitoso!')" style="display: none;">
-                <h2>Crear cuenta</h2>
-                <input type="text" placeholder="Nombre" required>
-                <input type="email" placeholder="Correo electrónico" required>
-                <input type="password" placeholder="Contraseña" required>
-                <input type="password" placeholder="Confirmar contraseña" required>
-                <button type="submit" class="login-button">Crear cuenta</button>
-                <p class="below-button" onclick="toggleForms()">Iniciar sesion</p>
-            </form>
-            
+        <!-- TOP -->
+
+        <div class="container mt-5 mb-5">
+            <h2 style="text-align: left;">Todos los productos</h2>
+
+            <div class="filter-container">
+                <form action="">
+                    <div class="filters">
+                        Filtrar: 
+                        <div class="filter-item">
+                            <label for="category">Categoría</label>
+                            <select id="category" name="category">
+                                <option value="category1">En existencia (150)</option>
+                                <option value="category2">Agotado (100)</option>
+                            </select>
+                        </div>
+                        <div class="filter-item">
+                            <label for="size">Talla</label>
+                            <select id="size" name="size">
+                                <option value="">Seleccionar talla</option>
+                                <option value="size1">Talla S</option>
+                                <option value="size2">Talla M</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="sort-by"></div>
+                    <div class="total-products"></div>
+                </form>
+            </div>
         </div>
+            
+
+        <!-- BELOW -->
 
         <hr style="margin-top: 50px;">
         <div class="social-icons">
