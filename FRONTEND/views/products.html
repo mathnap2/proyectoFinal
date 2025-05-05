@@ -107,31 +107,220 @@
 
         <div class="container mt-5 mb-5">
             <h2 style="text-align: left;">Todos los productos</h2>
-
             <div class="filter-container">
                 <form action="">
-                    <div class="filters">
-                        Filtrar: 
-                        <div class="filter-item">
-                            <label for="category">Categoría</label>
-                            <select id="category" name="category">
-                                <option value="category1">En existencia (150)</option>
-                                <option value="category2">Agotado (100)</option>
-                            </select>
+                    <div class="d-flex justify-content-between mb-2">
+                        <div class="filters">
+                            <p class="me-3">Filtrar:</p>
+                            <!-- Availability Filter -->
+                            <div class="filter-item me-3">
+                                <div class="btn-group">
+                                    <div class="dropdown">
+                                        <button class="btn btn-link text-reset text-decoration-none p-0 dropdown-toggle" type="button" id="availabilityDropdown" data-bs-toggle="dropdown">
+                                            Availability
+                                        </button>
+                            
+                                        <ul class="dropdown-menu p-3" aria-labelledby="availabilityDropdown" style="min-width: 250px;">
+                                            <div class="d-flex justify-content-between mb-2">
+                                                <span>0 seleccionados</span>
+                                                <a href="#" class="text-decoration-none text-reset"><u>Restablecer</u></a>
+                                            </div>
+                                            <li><hr class="dropdown-divider"></li>
+                                            <li>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="inStock">
+                                                    <label class="form-check-label" for="inStock">En existencia</label>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="outOfStock">
+                                                    <label class="form-check-label" for="outOfStock">Agotado</label>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                    
+                            <!-- Talla Filter -->
+                            <div class="filter-item me-3">
+                                <div class="btn-group">
+                                    <div class="dropdown">
+                                        <button class="btn btn-link text-reset text-decoration-none p-0 dropdown-toggle" type="button" id="sizeDropdown" data-bs-toggle="dropdown">
+                                        Talla
+                                        </button> 
+                                        <ul class="dropdown-menu p-3" aria-labelledby="sizeDropdown" style="min-width: 250px;">
+                                            <div class="d-flex justify-content-between mb-2">
+                                                <span>0 seleccionados</span>
+                                                <a href="#" class="text-decoration-none text-reset"><u>Restablecer</u></a>
+                                            </div>
+                                            <li><hr class="dropdown-divider"></li>
+                                            <li>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" id="sizeS">
+                                                <label class="form-check-label" for="sizeS">Talla S</label>
+                                            </div>
+                                            </li>
+                                            <li>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="sizeM">
+                                                    <label class="form-check-label" for="sizeM">Talla M</label>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                    
+                            <!-- Price Filter -->
+                            <div class="filter-item">
+                                <div class="btn-group">
+                                    <div class="dropdown">
+                                        <button class="btn btn-link text-reset text-decoration-none p-0 dropdown-toggle" type="button" id="priceDropdown" data-bs-toggle="dropdown">
+                                        Price
+                                        </button>
+                                        <ul class="dropdown-menu p-3" aria-labelledby="priceDropdown" style="min-width: 400px;">
+                                            <div class="d-flex justify-content-between mb-2">
+                                                <span>El precio más alto es $3,999.00</span>
+                                                <a href="#" class="text-decoration-none text-reset"><u>Restablecer</u></a>
+                                            </div>
+                                            <li><hr class="dropdown-divider"></li>
+                                            <div class="row g-2">
+                                                <div class="col-6">
+                                                    <label for="priceMin" class="form-label">De $</label>
+                                                    <input type="number" class="form-control" id="priceMin" name="price_min" placeholder="0">
+                                                </div>
+                                                <div class="col-6">
+                                                    <label for="priceMax" class="form-label">Para $</label>
+                                                    <input type="number" class="form-control" id="priceMax" name="price_max" placeholder="3999">
+                                                </div>
+                                            </div>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="filter-item">
-                            <label for="size">Talla</label>
-                            <select id="size" name="size">
-                                <option value="">Seleccionar talla</option>
-                                <option value="size1">Talla S</option>
-                                <option value="size2">Talla M</option>
-                            </select>
+                        <div class="sort"> 
+                            <p class="me-3">Ordenar por:</p>
+                            <div class="dropdown">
+                                <button class="btn btn-link text-reset text-decoration-none p-0 dropdown-toggle" type="button" id="sortDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Fecha: reciente a antiguo(a)
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="sortDropdown">
+                                    <li><a class="dropdown-item active" href="#" data-value="fecha-reciente">Fecha: reciente a antiguo(a)</a></li>
+                                    <li><a class="dropdown-item" href="#" data-value="fecha-antiguo">Fecha: antiguo(a) a reciente</a></li>
+                                    <li><a class="dropdown-item" href="#" data-value="mas-vendidos">Más vendidos</a></li>
+                                    <li><a class="dropdown-item" href="#" data-value="precio-menor">Precio, menor a mayor</a></li>
+                                    <li><a class="dropdown-item" href="#" data-value="precio-mayor">Precio, mayor a menor</a></li>
+                                    <li><a class="dropdown-item" href="#" data-value="az">Alfabéticamente, A-Z</a></li>
+                                    <li><a class="dropdown-item" href="#" data-value="za">Alfabéticamente, Z-A</a></li>
+                                </ul>
+                            </div>
+                            <p class="ms-3">280 productos</p>
                         </div>
                     </div>
-                    <div class="sort-by"></div>
-                    <div class="total-products"></div>
-                </form>
+                </form>                  
             </div>
+
+
+            <section class="container my-5">
+                <h3 class="mb-4">Recién agregados</h3>
+                <div class="row row-cols-2 row-cols-md-4 g-4" >
+                    <!-- Producto 1 -->
+                    <div class="col fade-in">
+                        <div class="card border-0">
+                            <img src="URL_IMAGEN_1" class="card-img-top" alt="All Star Game MLB 2006 L">
+                            <div class="card-body px-0">
+                                <p class="mb-1">All Star Game MLB 2006 L</p>
+                                <strong>$ 249.00 MXN</strong>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <!-- Producto 2 - Agotado -->
+                    <div class="col fade-in">
+                        <div class="card border-0 position-relative">
+                            <img src="URL_IMAGEN_2" class="card-img-top" alt="Hoodie Carhartt talla L">
+                            <!-- Etiqueta Agotado -->
+                            <span class="badge bg-dark position-absolute top-0 start-0 m-2">Agotado</span>
+                            <div class="card-body px-0">
+                                <p class="mb-1">Hoodie Carhartt talla L</p>
+                                <strong>$ 899.00 MXN</strong>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <!-- Producto 3 -->
+                    <div class="col fade-in">
+                        <div class="card border-0">
+                            <img src="URL_IMAGEN_3" class="card-img-top" alt="Carhartt Force Pocket tee talla L">
+                            <div class="card-body px-0">
+                                <p class="mb-1">Carhartt Force Pocket tee talla L</p>
+                                <strong>$ 399.00 MXN</strong>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <!-- Producto 4 -->
+                    <div class="col fade-in">
+                        <div class="card border-0">
+                            <img src="URL_IMAGEN_4" class="card-img-top" alt="Independent Impermeable M">
+                            <div class="card-body px-0">
+                                <p class="mb-1">Independent - Impermeable L - M</p>
+                                <strong>$ 799.00 MXN</strong>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <!-- Agrega más productos duplicando el bloque .col -->
+                    <div class="col fade-in">
+                        <div class="card border-0">
+                            <img src="URL_IMAGEN_1" class="card-img-top" alt="All Star Game MLB 2006 L">
+                            <div class="card-body px-0">
+                                <p class="mb-1">All Star Game MLB 2006 L</p>
+                                <strong>$ 249.00 MXN</strong>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <!-- Producto 2 - Agotado -->
+                    <div class="col fade-in">
+                        <div class="card border-0 position-relative">
+                            <img src="URL_IMAGEN_2" class="card-img-top" alt="Hoodie Carhartt talla L">
+                            <!-- Etiqueta Agotado -->
+                            <span class="badge bg-dark position-absolute top-0 start-0 m-2">Agotado</span>
+                            <div class="card-body px-0">
+                                <p classtrongs="mb-1">Hoodie Carhartt talla L</p>
+                                <strong>$ 899.00 MXN</strong>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <!-- Producto 3 -->
+                    <div class="col fade-in">
+                        <div class="card border-0">
+                            <img src="URL_IMAGEN_3" class="card-img-top" alt="Carhartt Force Pocket tee talla L">
+                            <div class="card-body px-0">
+                                <p class="mb-1">Carhartt Force Pocket tee talla L</p>
+                                <strong>$ 399.00 MXN</strong>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <!-- Producto 4 -->
+                    <div class="col fade-in">
+                        <div class="card border-0">
+                            <img src="URL_IMAGEN_4" class="card-img-top" alt="Independent Impermeable M">
+                            <div class="card-body px-0">
+                                <p class="mb-1">Independent - Impermeable L - M</p>
+                                <strong>$ 799.00 MXN</strong>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
         </div>
             
 
@@ -163,6 +352,19 @@
             </div>
             </div>
         </footer>
+        <script>
+            const observer = new IntersectionObserver((entries) => {
+              entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                  entry.target.classList.add('visible');
+                  // Si solo quieres que se active una vez:
+                  observer.unobserve(entry.target);
+                }
+              });
+            });
+          
+            document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+        </script>
         <!-- Bootstrap JavaScript Libraries -->
         <script
             src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
