@@ -117,7 +117,7 @@
 
     <!--Producto-->
     <div class="container my-5">
-        <div class="row justify-content-center align-items-start">
+        <div class="row g-4 justify-content-center align-items-start">
           <!-- Columna del producto -->
           <div class="col-md-6 text-center fade-in">
             <div class="card border-0">
@@ -132,13 +132,15 @@
               <p style="text-align: center;">$ 2,599.00 MXN</p>
       
               <label class="form-label">Cantidad</label>
+                
                 <div class="d-flex justify-content-center">
-                    <div class="input-group mb-4" style="max-width: 140px;">
-                        <button class="btn btn-outline-secondary" type="button" id="decreaseBtn">−</button>
-                        <input type="text" class="form-control text-center" id="quantityInput" value="1" readonly>
-                        <button class="btn btn-outline-secondary" type="button" id="increaseBtn">+</button>
-                    </div>
+                  <div class="input-group align-items-center" style="width: 140px;">
+                    <button class="btn btn-outline-dark border-end-0" type="button" id="decreaseBtn">−</button>
+                    <input type="text" class="form-control text-center border-start-0 border-end-0" value="1" id="quantityInput" readonly>
+                    <button class="btn btn-outline-dark border-start-0" type="button" id="increaseBtn">+</button>
+                  </div>
                 </div>
+              
 
                <a href="./demoCart.html"><button class="btn btn-outline-dark w-100 mb-3">Agregar al carrito</button></a>
       
@@ -155,6 +157,9 @@
           </div>
         </div>
       </div>
+
+
+      
 
       <!--Script para paypal-->
       <script>

@@ -211,3 +211,12 @@ footer {
     flex-direction: column;
     justify-content: flex-end;
 }
+.input-group .btn,
+.input-group .form-control {
+    height: 40px !important;
+    line-height: 1.2;
+    padding: 0 0.90rem;
+    display: flex;
+    align-items: center;
+}
+
