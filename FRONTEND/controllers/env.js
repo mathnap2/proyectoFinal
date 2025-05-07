@@ -1,6 +1,6 @@
 function validateLogin() {
     const isLoggedIn = !!sessionStorage.user;
-    const currentPath = window.location.pathname;  // 👈 Solo la ruta del archivo
+    const currentPath = window.location.pathname;  // Solo la ruta del archivo
 
     // Si NO está logueado y NO está en login.html → forzar ir al login
     if (!isLoggedIn && !currentPath.endsWith('/login.html')) {

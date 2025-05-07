@@ -35,6 +35,12 @@ let productSchema = mongoose.Schema({
         type: Number,
         required: true,
         default: 0
+    },
+
+    imageUrl: {
+        type: String,
+        required: true,
+        default: "https://fanatics.frgimages.com/new-york-yankees/mens-nike-aaron-judge-white-new-york-yankees-home-replica-player-name-jersey_pi3592000_altimages_ff_3592645-11960f417ba69ff98eccalt2_full.jpg?_hv=2&w=900"
     }
 });
 

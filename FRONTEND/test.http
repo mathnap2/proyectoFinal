@@ -10,7 +10,9 @@ Content-Type: application/json
   "size": "L",
   "price": "2599.00",
   "dateUploaded": "2025-05-06T00:00:00.000Z",
-  "timesSold": "0"
+  "timesSold": "0",
+  "imageUrl": "/assets/img/productos/yankeesJersey.jpg"
+
 }
 
 ###GET PRODUCTS
