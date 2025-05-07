@@ -17,11 +17,11 @@ Content-Type: application/json
 GET http://localhost:3000/api/products
 
 ###GET PRODUCT BY ID
-GET http://localhost:3000/api/products/681acceabd5ea309c4b09922
+GET http://localhost:3000/api/products/681ae90c12987999a2aaa374
 
 
 ###UPDATE PRODUCT
-PUT http://localhost:3000/api/products/681acceabd5ea309c4b09922
+PUT http://localhost:3000/api/products/681ae90c12987999a2aaa374
 Content-Type: application/json
 
 {
@@ -62,7 +62,7 @@ GET http://localhost:3000/api/users
 GET http://localhost:3000/api/users?nombre=Luis
 
 ###UPDATE USER
-PUT http://localhost:3000/api/users/681adedab6e134413fc034a7
+PUT http://localhost:3000/api/users/681ae7f8070f1b28514f83ca
 Content-Type: application/json
 
 {

@@ -1,13 +1,20 @@
 const mongoose = require('mongoose');
 
-const connectDB = async () => {
-    try {
-        const conn = await mongoose.connect("mongodb+srv://admin:PasswordAdmin@myapp.jakwepm.mongodb.net/ProyectoIntegrador");
-        console.log('¡Conectado exitosamente!');
-    } catch (err) {
-        console.error('Error de conexión a MongoDB:', err.message);
-        process.exit(1);
-    }
-};
+const mongoConnection = "mongodb+srv://admin:PasswordAdmin@myapp.jakwepm.mongodb.net/ProyectoIntegrador";
 
-module.exports = connectDB;
+mongoose.connection.on('connecting', () => {
+    console.log('Conectando...');
+    console.log(mongoose.connection.readyState); // Estado 2: Connecting
+});
+
+mongoose.connection.on('connected', () => {
+    console.log('¡Conectado exitosamente!');
+    console.log(mongoose.connection.readyState); // Estado 1: Connected
+});
+
+mongoose.connect(mongoConnection, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+});
+
+module.exports = mongoose;

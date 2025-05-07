@@ -1,7 +1,6 @@
 const express = require('express');
-const mongoose = require('mongoose');
 const cors = require('cors');
-const connectDB = require('./config/db');
+require('./config/db'); // Conexión a la base de datos
 
 const userRoutes = require('./routes/userRoutes');
 const productRoutes = require('./routes/productRoutes');
@@ -10,22 +9,21 @@ const authRoutes = require('./routes/authRoutes');
 const app = express();
 const port = 3000;
 
-// Middlewares
-app.use(cors({ methods: ['GET', 'POST', 'DELETE', 'UPDATE', 'PUT', 'PATCH'] }));
+// Middleware
+app.use(cors({
+    methods: ['GET','POST','DELETE','UPDATE','PUT','PATCH']
+}));
 app.use(express.json());
-
-// DB
-connectDB();
 
 // Rutas
 app.use('/api/users', userRoutes);
-app.use('/api/products', productRoutes);
 app.use('/api/login', authRoutes);
+app.use('/api/products', productRoutes);
 
-// Start
 app.listen(port, () => {
-    console.log("Aplicación corriendo en puerto " + port);
+    console.log(`Servidor corriendo en puerto ${port}`);
 });
+
 
 
 
