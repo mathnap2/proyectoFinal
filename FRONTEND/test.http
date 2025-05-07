@@ -72,6 +72,8 @@ Content-Type: application/json
 ###DELETE USER
 DELETE http://localhost:3000/api/users/681b01aad3b9874fd23bec75
 
+
+
 ### Filtrar por talla (size = M)
 GET http://localhost:3000/api/products/filter?size=L
 Content-Type: application/json
