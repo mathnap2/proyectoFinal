@@ -1,12 +1,16 @@
-const local_url = "http://localhost:3000/";
+function validateLogin() {
+    const isLoggedIn = !!sessionStorage.user;
+    const currentPath = window.location.pathname;  // 👈 Solo la ruta del archivo
 
-function validateLogin(){
-    if(!sessionStorage.user && window.location.href != local_url){
+    // Si NO está logueado y NO está en login.html → forzar ir al login
+    if (!isLoggedIn && !currentPath.endsWith('/login.html')) {
         alert("Favor de iniciar sesión");
-        window.location.href = local_url;
+        window.location.href = './login.html';
     }
-    if(sessionStorage.user && window.location.href == local_url){
-        window.location.href = local_url + 'home.html';
+
+    // Si está logueado y está en login.html → enviarlo al home
+    if (isLoggedIn && currentPath.endsWith('/login.html')) {
+        window.location.href = './home.html';
     }
 }
 
