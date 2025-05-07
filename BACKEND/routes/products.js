@@ -10,6 +10,20 @@ router.post('/', (req, res) => {
         .catch(err => res.status(400).send(err));
 });
 
+//PARA LA FECHA QUE SE SUBE UN DIA ANTES
+
+// router.post('/', (req, res) => {
+//     const product = new Product({
+//         ...req.body,
+//         dateUploaded: new Date() // esto asegura la fecha en la hora local del servidor
+//     });
+
+//     product.save()
+//         .then(doc => res.send(doc))
+//         .catch(err => res.status(400).send(err));
+// });
+
+
 // Leer todos los productos
 router.get('/', (req, res) => {
     Product.find()
