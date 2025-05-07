@@ -117,6 +117,23 @@
         </div>
         <div class="profile-container">
             <h2>Cuenta</h2>
+            <div class="container my-4">
+                <h4>Actualizar información</h4>
+              <div class="login-container">
+                <form id="updateForm" class="container mt-4">
+                    <div class="mb-3">
+                      <label for="newEmail" class="form-label">Nuevo Correo</label>
+                      <input type="email" class="form-control" id="newEmail">
+                    </div>
+                    <div class="mb-3">
+                      <label for="newPassword" class="form-label">Nueva Contraseña</label>
+                      <input type="password" class="form-control" id="newPassword">
+                    </div>
+                    <button type="submit" class="login-button">Actualizar</button>
+                  </form>
+                  
+              </div>
+            </div>
             <p class="below-button" onclick="logout()">Cerrar sesión</p>
         </div>
 

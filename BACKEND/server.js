@@ -14,7 +14,7 @@ app.use(cors({
 app.use(express.json());
 
 // Conexión a la BD
-let mongoConnection = "mongodb+srv://admin:123@myapp.wvoylgk.mongodb.net/ProyectoIntegrador";
+let mongoConnection = "mongodb+srv://admin:Mncb0219@myapp.cc6eeqb.mongodb.net/proyecto_final";
 let db = mongoose.connection;
 db.on('connecting', () => console.log('Conectando...'));
 db.on('connected', () => console.log('¡Conectado exitosamente!'));

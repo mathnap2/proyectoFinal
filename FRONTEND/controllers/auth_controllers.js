@@ -84,12 +84,51 @@ function logout(){
     window.location.href = './login.html';
 }
 
+function updateUserInfo(event) {
+    event.preventDefault();
+
+    const user = JSON.parse(sessionStorage.getItem('user'));
+    if (!user || !user._id) {
+        alert('Usuario no autenticado');
+        return;
+    }
+
+    const newEmail = document.getElementById('newEmail').value.trim();
+    const newPassword = document.getElementById('newPassword').value.trim();
+
+    const updateObj = {};
+    if (newEmail) updateObj.email = newEmail;
+    if (newPassword) updateObj.password = newPassword;
+
+    fetch(`http://localhost:3000/api/users/${user._id}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(updateObj)
+    })
+    .then(res => res.json())
+    .then(result => {
+        if (result.error) throw new Error(result.error);
+        alert('Información actualizada correctamente ✅');
+        // Actualizar localmente si cambió el correo
+        const updatedUser = { ...user, ...updateObj };
+        sessionStorage.setItem('user', JSON.stringify(updatedUser));
+    })
+    .catch(err => {
+        console.error('Error al actualizar usuario:', err);
+        alert(err.message || 'Error al actualizar');
+    });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     const loginForm = document.getElementById('formLogin');
     const registerForm = document.getElementById('formRegister');
     const userIcon = document.getElementById('userIcon');
-
+    const updateForm = document.getElementById('updateForm');
+    
     if (loginForm) loginForm.addEventListener('submit', loginUser);
     if (registerForm) registerForm.addEventListener('submit', registerUser);
     if (userIcon) userIcon.addEventListener('click', userIconClick);
+    if (updateForm) updateForm.addEventListener('submit', updateUserInfo);
 });
