@@ -17,6 +17,36 @@ router.get('/', (req, res) => {
         .catch(err => res.status(400).send(err));
 });
 
+// Filtrar productos
+router.get('/filter', async (req, res) => {
+    const { size, availability, name, minPrice, maxPrice, dateUploaded } = req.query;
+    const filter = {};
+
+    if (size) filter.size = size;
+    if (availability !== undefined) filter.availability = availability === 'true';
+    if (name) filter.name = { $regex: name, $options: 'i' };
+
+    if (minPrice || maxPrice) {
+        filter.price = {};
+        if (minPrice) filter.price.$gte = parseFloat(minPrice);
+        if (maxPrice) filter.price.$lte = parseFloat(maxPrice);
+    }
+
+    if (dateUploaded) {
+        const date = new Date(dateUploaded);
+        const nextDate = new Date(date);
+        nextDate.setDate(date.getDate() + 1);
+        filter.dateUploaded = { $gte: date, $lt: nextDate };
+    }
+
+    try {
+        const products = await Product.find(filter);
+        res.json(products);
+    } catch (err) {
+        res.status(500).json({ error: 'Error al filtrar productos' });
+    }
+});
+
 // Leer un producto por ID
 router.get('/:id', (req, res) => {
     Product.findById(req.params.id)
@@ -37,5 +67,7 @@ router.delete('/:id', (req, res) => {
         .then(doc => res.send({ mensaje: "Producto eliminado", doc }))
         .catch(err => res.status(400).send(err));
 });
+
+
 
 module.exports = router;

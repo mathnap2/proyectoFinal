@@ -22,7 +22,7 @@ let productSchema = mongoose.Schema({
         required: true
     },
     price: {
-        type: String,
+        type: Number,
         required: true,
         default: 1
     },
@@ -31,7 +31,7 @@ let productSchema = mongoose.Schema({
         required: true
     },
     timesSold: {
-        type: String,
+        type: Number,
         required: true,
         default: 0
     }

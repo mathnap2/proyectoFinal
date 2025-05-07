@@ -71,3 +71,37 @@ Content-Type: application/json
 
 ###DELETE USER
 DELETE http://localhost:3000/api/users/681b01aad3b9874fd23bec75
+
+### Filtrar por talla (size = M)
+GET http://localhost:3000/api/products/filter?size=L
+Content-Type: application/json
+
+###
+
+### Filtrar por disponibilidad (availability = true)
+GET http://localhost:3000/api/products/filter?availability=true
+Content-Type: application/json
+
+###
+
+### Filtrar por nombre (name contiene "camisa")
+GET http://localhost:3000/api/products/filter?name=Jersey
+Content-Type: application/json
+
+###
+
+### Filtrar por precio mínimo y máximo (entre 300 y 700)
+GET http://localhost:3000/api/products/filter?minPrice=1800&maxPrice=2599
+Content-Type: application/json
+
+###
+
+### Filtrar por fecha exacta de subida (2024-05-01)
+GET http://localhost:3000/api/products/filter?dateUploaded=2025-05-06
+Content-Type: application/json
+
+###
+
+### Filtros combinados: talla L, disponible, precio entre 400 y 1000, contiene "chaqueta"
+GET http://localhost:3000/api/products/filter?size=L&availability=true&minPrice=400&maxPrice=2600&name=Jersey
+Content-Type: application/json
