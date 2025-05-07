@@ -47,12 +47,12 @@ const userSchema = mongoose.Schema({
     joinedAt: {
         type: Date,
         default: Date.now
-    },
-    sexo: {
-        type: String,
-        enum: ['H', 'M'],
-        required: [true, 'El sexo es obligatorio']
     }
+    // sexo: {
+    //     type: String,
+    //     enum: ['H', 'M'],
+    //     required: [true, 'El sexo es obligatorio']
+    // }
 });
 
 const User = mongoose.model('users', userSchema);
@@ -60,7 +60,7 @@ const User = mongoose.model('users', userSchema);
 // POST Usuario con hashing de contraseña
 app.post('/api/users', async (req, res) => {
     try {
-        const { name, email, password, sexo } = req.body;
+        const { name, email, password } = req.body;
 
         // Hashear contraseña
         const hashedPassword = await bcrypt.hash(password, 10);
@@ -70,8 +70,8 @@ app.post('/api/users', async (req, res) => {
             name,
             email,
             password: hashedPassword,
-            joinedAt: new Date(),
-            sexo
+            joinedAt: new Date()
+            // sexo
         });
 
         const savedUser = await newUser.save();

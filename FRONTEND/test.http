@@ -41,8 +41,7 @@ Content-Type: application/json
 {
   "name": "Luis Mendoza",
   "email": "luis@test.com",
-  "password": "abc12345",
-  "sexo": "H"
+  "password": "abc12345"
 }
 
 
