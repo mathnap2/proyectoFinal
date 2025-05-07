@@ -1,4 +1,3 @@
-/*
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
@@ -219,4 +218,3 @@ app.post('/api/login', async (req, res) => {
 app.listen(port, () => {
     console.log("Aplicación corriendo en puerto " + port);
 });
-*/
