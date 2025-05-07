@@ -1,4 +1,4 @@
-###POST PRODUCT
+###POST PRODUCT 1
 POST http://localhost:3000/api/products
 Content-Type: application/json
 
@@ -10,10 +10,59 @@ Content-Type: application/json
   "size": "L",
   "price": "2599.00",
   "dateUploaded": "2025-05-06T00:00:00.000Z",
-  "timesSold": "0",
-  "imageUrl": "/assets/img/productos/yankeesJersey.jpg"
-
+  "timesSold": 0,
+  "imageUrl": "/assets/img/products/yankeesJersey.jpg"
 }
+
+###POST PRODUCT 2
+POST http://localhost:3000/api/products
+Content-Type: application/json
+
+{
+  "name": "Hoodie Carhartt",
+  "description": "Hoodie Navy Blue",
+  "availability": true,
+  "stock": 5,
+  "size": "L",
+  "price": "899.00",
+  "dateUploaded": "2025-05-06T00:00:00.000Z",
+  "timesSold": 0,
+  "imageUrl": "/assets/img/products/hoodieCarhartt.jpg"
+}
+
+###POST PRODUCT 3
+POST http://localhost:3000/api/products
+Content-Type: application/json
+
+{
+  "name": "Carhartt Pocket Tee",
+  "description": "Carhartt Black Pocket T-Shirt",
+  "availability": true,
+  "stock": 5,
+  "size": "L",
+  "price": "399.00",
+  "dateUploaded": "2025-05-06T00:00:00.000Z",
+  "timesSold": 0,
+  "imageUrl": "/assets/img/products/pocketTeeCarhartt.jpg"
+}
+
+###POST PRODUCT 4
+POST http://localhost:3000/api/products
+Content-Type: application/json
+
+{
+  "name": "Impermeable Independent",
+  "description": "Impermeable Independent blanco y gris con hoodie",
+  "availability": true,
+  "stock": 5,
+  "size": "M - L",
+  "price": "799.00",
+  "dateUploaded": "2025-05-06T00:00:00.000Z",
+  "timesSold": "0",
+  "imageUrl": "/assets/img/products/independentImpermeable.jpg"
+}
+
+
 
 ###GET PRODUCTS
 GET http://localhost:3000/api/products

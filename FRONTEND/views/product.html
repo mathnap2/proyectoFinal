@@ -38,72 +38,51 @@
       </script>
 
 
-    <!--Producto-->
-    <div class="container my-5">
+          <!--Producto-->
+      <div class="container my-5">
         <div class="row g-4 justify-content-center align-items-start">
+
+
           <!-- Columna del producto -->
           <div class="col-md-6 text-center fade-in">
             <div class="card border-0">
-              <img src="https://fanatics.frgimages.com/new-york-yankees/mens-nike-aaron-judge-white-new-york-yankees-home-replica-player-name-jersey_pi3592000_altimages_ff_3592645-11960f417ba69ff98eccalt2_full.jpg?_hv=2&w=900"
-                class="card-img-top img-fluid" alt="Jersey New York Yankees Color Blanco">
+              <img id="product-image" class="card-img-top img-fluid" alt="Imagen del producto">
             </div>
           </div>
+
           <!--Columna del form-->
           <div class="col-md-4">
             <div class="card border rounded p-4 shadow-sm">
-              <h5 class="fw-bold mb-2">Jersey NY Yankees Talla L</h5>
-              <p style="text-align: center;">$ 2,599.00 MXN</p>
-      
-              <label class="form-label">Cantidad</label>
-                
-                <div class="d-flex justify-content-center">
-                  <div class="input-group align-items-center" style="width: 140px;">
-                    <button class="btn btn-outline-dark border-end-0" type="button" id="decreaseBtn">−</button>
-                    <input type="text" class="form-control text-center border-start-0 border-end-0" value="1" id="quantityInput" readonly>
-                    <button class="btn btn-outline-dark border-start-0" type="button" id="increaseBtn">+</button>
-                  </div>
-                </div>
-              
+              <h2 id="product-title" class="fw-bold mb-2">Nombre</h2>
+              <h5 id="product-size" class="fw-semibold mb-2">Talla</h5>
+              <p id="product-price" class="text-center">Precio</p><br>
 
-               <a href="./demoCart.html"><button class="btn btn-outline-dark w-100 mb-3">Agregar al carrito</button></a>
-      
+              <label class="form-label">Cantidad</label>
+              <div class="d-flex justify-content-center">
+                <div class="input-group align-items-center" style="width: 140px;">
+                  <button class="btn btn-outline-dark border-end-0" type="button" id="decreaseBtn">−</button>
+                  <input type="text" class="form-control text-center border-start-0 border-end-0" value="1" id="quantityInput" readonly>
+                  <button class="btn btn-outline-dark border-start-0" type="button" id="increaseBtn">+</button>
+                </div>
+              </div>
+
+              <button class="btn btn-outline-dark w-100 mb-3" id="add-to-cart-btn">Agregar al carrito</button>
+
               <div id="paypal-button-container" class="mb-3"></div>
-      
+
               <div class="text-center mb-4">
                 <a href="#" class="text-muted" style="font-size: 14px;">Más opciones de pago</a>
               </div>
-      
+
               <hr>
-              <p class="fw-semibold">Jersey NY Yankees Talla L</p>
-              <p class="text-success mb-0">✅ 10/10 Como nuevo</p>
+              <p id="product-description">Descripción</p>
+              <p id="product-availability" class="text-success mb-0">Estado</p>
             </div>
           </div>
+
+          
         </div>
       </div>
-
-
-      
-
-      <!--Script para paypal-->
-      <script>
-        paypal.Buttons({
-          createOrder: function(data, actions) {
-            return actions.order.create({
-              purchase_units: [{
-                amount: {
-                  value: '2599.00' // Precio fijo o puedes tomarlo dinámico
-                }
-              }]
-            });
-          },
-          onApprove: function(data, actions) {
-            return actions.order.capture().then(function(details) {
-              alert('Pago completado por ' + details.payer.name.given_name + ' ✅');
-              // Aquí puedes redirigir, guardar pedido, etc.
-            });
-          }
-        }).render('#paypal-button-container'); // Renderiza el botón
-      </script>
       
       
       <!-- JS para controlar la cantidad -->
@@ -153,6 +132,8 @@
     </script>
     
     <script src="../controllers/auth_controllers.js"></script>
+    <script src="../controllers/productController.js"></script>
+
         <!-- Bootstrap JavaScript Libraries -->
         <script
             src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
