@@ -22,21 +22,7 @@
 
         <link rel="stylesheet" href="../assets/style.css">
 
-        <script>
-            function toggleForms(){
-                let form_login = document.getElementById('formLogin'),
-                form_register = document.getElementById('formRegister');
-            
-                if(form_register.style.display == 'none'){
-                    form_login.style.display = 'none';
-                    form_register.style.display = 'block';
-                }
-                else{
-                    form_login.style.display = 'block';
-                    form_register.style.display = 'none';
-                }
-            }
-        </script>
+        
         
     </head>
 
@@ -134,8 +120,8 @@
         
             <form id="formLogin" action="./home.html">
                 <h2>Inicio de sesión</h2>
-                <input type="email" placeholder="Correo electrónico" required>
-                <input type="password" placeholder="Contraseña" required>
+                <input type="email" name="email" placeholder="Correo electrónico" required>
+                <input type="password" name="password" placeholder="Contraseña" required>
                 <!-- <a href="#" class="forgot-password">¿Olvidaste tu contraseña?</a> -->
                 <button type="submit" class="login-button">Iniciar sesión</button>
                 <p class="below-button" onclick="toggleForms()">Crear cuenta</p>
@@ -178,6 +164,7 @@
             </div>
             </div>
         </footer>
+        <script src="../controllers/auth_controllers.js"></script>
         <!-- Bootstrap JavaScript Libraries -->
         <script
             src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
