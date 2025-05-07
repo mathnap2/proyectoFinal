@@ -1,0 +1,74 @@
+###POST PRODUCT
+POST http://localhost:3000/api/products
+Content-Type: application/json
+
+{
+  "name": "Jersey Yankees",
+  "description": "Edición limitada",
+  "availability": true,
+  "stock": 5,
+  "size": "L",
+  "price": "2599.00",
+  "dateUploaded": "2025-05-06T00:00:00.000Z",
+  "timesSold": "0"
+}
+
+###GET PRODUCTS
+GET http://localhost:3000/api/products
+
+###GET PRODUCT BY ID
+GET http://localhost:3000/api/products/681acceabd5ea309c4b09922
+
+
+###UPDATE PRODUCT
+PUT http://localhost:3000/api/products/681acceabd5ea309c4b09922
+Content-Type: application/json
+
+{
+  "stock": 10,
+  "price": "2799.00"
+}
+
+
+###DELETE PRODUCT
+DELETE http://localhost:3000/api/products/681acceabd5ea309c4b09922
+
+
+###POST USER
+POST http://localhost:3000/api/users
+Content-Type: application/json
+
+{
+  "name": "Luis Mendoza",
+  "email": "luis@test.com",
+  "password": "abc12345",
+  "sexo": "H"
+}
+
+
+###POST LOGIN
+POST http://localhost:3000/api/login
+Content-Type: application/json
+
+{
+  "email": "luis@test.com",
+  "password": "abc12345"
+}
+
+###GET USERS
+GET http://localhost:3000/api/users
+
+###GET USER BY NAME
+GET http://localhost:3000/api/users?nombre=Luis
+
+###UPDATE USER
+PUT http://localhost:3000/api/users/681adedab6e134413fc034a7
+Content-Type: application/json
+
+{
+  "name": "Reilly Parra",
+  "email": "reilly@gmail.com"
+}
+
+###DELETE USER
+DELETE http://localhost:3000/api/users/681adcd6b6e134413fc0349f
