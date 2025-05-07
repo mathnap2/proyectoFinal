@@ -17,11 +17,11 @@ Content-Type: application/json
 GET http://localhost:3000/api/products
 
 ###GET PRODUCT BY ID
-GET http://localhost:3000/api/products/681ae90c12987999a2aaa374
+GET http://localhost:3000/api/products/681b0164d3b9874fd23bec6f
 
 
 ###UPDATE PRODUCT
-PUT http://localhost:3000/api/products/681ae90c12987999a2aaa374
+PUT http://localhost:3000/api/products/681b0164d3b9874fd23bec6f
 Content-Type: application/json
 
 {
@@ -31,7 +31,7 @@ Content-Type: application/json
 
 
 ###DELETE PRODUCT
-DELETE http://localhost:3000/api/products/681acceabd5ea309c4b09922
+DELETE http://localhost:3000/api/products/681b0164d3b9874fd23bec6f
 
 
 ###POST USER
@@ -46,7 +46,7 @@ Content-Type: application/json
 
 
 ###POST LOGIN
-POST http://localhost:3000/api/login
+POST http://localhost:3000/api/users/login
 Content-Type: application/json
 
 {
@@ -61,7 +61,7 @@ GET http://localhost:3000/api/users
 GET http://localhost:3000/api/users?nombre=Luis
 
 ###UPDATE USER
-PUT http://localhost:3000/api/users/681ae7f8070f1b28514f83ca
+PUT http://localhost:3000/api/users/681b0277d3b9874fd23bec7c
 Content-Type: application/json
 
 {
@@ -70,4 +70,4 @@ Content-Type: application/json
 }
 
 ###DELETE USER
-DELETE http://localhost:3000/api/users/681adcd6b6e134413fc0349f
+DELETE http://localhost:3000/api/users/681b01aad3b9874fd23bec75
