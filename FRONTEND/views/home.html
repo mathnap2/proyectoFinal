@@ -19,13 +19,8 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
         <link rel="stylesheet" href="../assets/style.css">
 
-        <script src="../../BACKEND/models/user.js"></script>
-        <script src="../../BACKEND/controllers/users_controller.js"></script>
+        <!-- <script src="../controllers/env.js"></script> -->
         
-        <script src="../../BACKEND/models/product.js"></script>
-        <script src="../../BACKEND/controllers//products_controller.js"></script>
-        
-        <script src="../test.js"></script>
 
     </head>
 
@@ -48,8 +43,8 @@
         
                 <!-- Íconos + botón hamburguesa -->
                 <div class="d-flex align-items-center">
-                    <a href="./login.html" class="nav-link me-2">
-                        <i class="fa-solid fa-user" style="font-size: 150%;"></i>
+                    <a class="nav-link me-2"> <!--href="./login.html"-->
+                        <i class="fa-solid fa-user hov" style="font-size: 150%;" id="userIcon"></i>
                     </a>
                     <a href="./cart.html" class="nav-link me-3">
                         <i class="fa-solid fa-cart-shopping" style="font-size: 150%;"></i>
@@ -304,6 +299,9 @@
           </div>
         </div>
     </footer> 
+
+    
+    <script src="../controllers/auth_controllers.js"></script>
        
         <script
             src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
