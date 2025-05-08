@@ -67,18 +67,6 @@ function registerUser(event) {
     });
 }
 
-function userIconClick(event) {
-    const user = sessionStorage.getItem('user');
-
-    if (user) {
-        // Usuario logueado → ir a su perfil
-        window.location.href = './profile.html';
-    } else {
-        // No logueado → ir al login
-        window.location.href = './login.html';
-    }
-}
-
 function logout(){
     sessionStorage.clear();
     window.location.href = './login.html';
@@ -129,6 +117,5 @@ document.addEventListener('DOMContentLoaded', () => {
     
     if (loginForm) loginForm.addEventListener('submit', loginUser);
     if (registerForm) registerForm.addEventListener('submit', registerUser);
-    if (userIcon) userIcon.addEventListener('click', userIconClick);
     if (updateForm) updateForm.addEventListener('submit', updateUserInfo);
 });
