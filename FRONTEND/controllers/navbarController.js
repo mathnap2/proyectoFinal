@@ -8,4 +8,3 @@ document.addEventListener("DOMContentLoaded", () => {
       badge.style.display = totalCount > 0 ? "inline" : "none";
     }
 });
-  
