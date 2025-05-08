@@ -6,6 +6,9 @@ const path = require('path');
 const usersRoutes = require('./routes/users');
 const productsRoutes = require('./routes/products');
 
+
+const paymentRoutes = require("./routes/checkout");
+
 const app = express();
 const port = 3000;
 
@@ -16,9 +19,9 @@ app.use(express.json());
 
 // Conexión a la BD
 
-let mongoConnection = "mongodb+srv://admin:Mncb0219@myapp.cc6eeqb.mongodb.net/proyecto_final"; //Angel
+//let mongoConnection = "mongodb+srv://admin:Mncb0219@myapp.cc6eeqb.mongodb.net/proyecto_final"; //Mathi
 
-//let mongoConnection = "mongodb+srv://admin:PasswordAdmin@myapp.jakwepm.mongodb.net/ProyectoIntegrador"; //Reilly 
+let mongoConnection = "mongodb+srv://admin:PasswordAdmin@myapp.jakwepm.mongodb.net/ProyectoIntegrador"; //Reilly 
 
 let db = mongoose.connection;
 db.on('connecting', () => console.log('Conectando...'));
@@ -40,6 +43,9 @@ app.get('/product.html', (req, res) => res.sendFile(path.resolve(__dirname, "../
 // Usar las rutas
 app.use('/api/users', usersRoutes);
 app.use('/api/products', productsRoutes);
+app.use("/api/payment", paymentRoutes);
+
+
 
 //Express
 app.use(express.static('FRONTEND'));

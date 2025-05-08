@@ -21,6 +21,8 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
         <link rel="stylesheet" href="../assets/style.css">
         <script src="../controllers/env.js"></script>
+
+        <script src="https://js.stripe.com/v3/"></script>
     </head>
 
     <body>
@@ -34,15 +36,28 @@
             });
         </script>
 
-    <div class="login-container">
-        <h2>Tu carrito está vacío</h2>
-        <a href="./home.html"><button type="submit" class="login-button">Seguir comprando</button></a>
-    </div>
+        <div class="container my-5" id="cart-container">
+            
 
-    <div>
-        <h5 style="margin-top: 50px;">¿Tienes una cuenta?</h5>
-        <p> <a href="./login.html" style="color: black;">Inicia sesión</a> para finalizar tus compras con mayor rapidez.</p>
-    </div>
+            <div id="cart-items" class="mt-4"></div>
+
+            <div class="text-end mb-4" id="cart-summary" style="display: none;">
+                <h5 class="fw-semibold" id="total-estimate">Total estimado: $0.00 MXN</h5>
+                <small class="text-muted">Impuestos y envío calculados en el siguiente paso</small>
+            </div>
+
+            
+            <div class="row">
+                <div class="col-md-6 offset-md-6">
+                <h5 class="mb-3">Pagar con tarjeta</h5>
+                <div id="card-element" class="form-control p-3 mb-3"></div>
+                <button class="btn btn-dark w-100" id="payment-button">Pagar ahora</button>
+                </div>
+            </div>
+
+            
+        </div>
+
     
     <div id="footer-container"></div>
         <script>
@@ -54,6 +69,9 @@
           </script>
     
     <script src="../controllers/auth_controllers.js"></script>
+    <script src="../controllers/cartController.js"></script>
+
+
         <!-- Bootstrap JavaScript Libraries -->
         <script
             src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"

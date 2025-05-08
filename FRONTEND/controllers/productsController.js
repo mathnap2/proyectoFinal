@@ -42,6 +42,8 @@ if (totalElement) {
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 }
 
+
+//FILTRADO
 function filtrarProductos(event) {
     event.preventDefault();
 

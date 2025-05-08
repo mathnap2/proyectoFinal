@@ -55,7 +55,7 @@
             <div class="card border rounded p-4 shadow-sm">
               <h2 id="product-title" class="fw-bold mb-2">Nombre</h2>
               <h5 id="product-size" class="fw-semibold mb-2">Talla</h5>
-              <p id="product-price" class="text-center">Precio</p><br>
+              <p id="product-price" class="text-center" data-price="">Precio</p><br>
 
               <label class="form-label">Cantidad</label>
               <div class="d-flex justify-content-center">
@@ -70,10 +70,6 @@
 
               <div id="paypal-button-container" class="mb-3"></div>
 
-              <div class="text-center mb-4">
-                <a href="#" class="text-muted" style="font-size: 14px;">Más opciones de pago</a>
-              </div>
-
               <hr>
               <p id="product-description">Descripción</p>
               <p id="product-availability" class="text-success mb-0">Estado</p>
@@ -85,26 +81,7 @@
       </div>
       
       
-      <!-- JS para controlar la cantidad -->
-      <script>
-        document.addEventListener("DOMContentLoaded", function () {
-          const decreaseBtn = document.getElementById("decreaseBtn");
-          const increaseBtn = document.getElementById("increaseBtn");
-          const quantityInput = document.getElementById("quantityInput");
-      
-          decreaseBtn.addEventListener("click", function () {
-            let value = parseInt(quantityInput.value);
-            if (value > 1) {
-              quantityInput.value = value - 1;
-            }
-          });
-      
-          increaseBtn.addEventListener("click", function () {
-            let value = parseInt(quantityInput.value);
-            quantityInput.value = value + 1;
-          });
-        });
-      </script>      
+         
     
 
     <!--Linea divisora-->
@@ -133,6 +110,7 @@
     
     <script src="../controllers/auth_controllers.js"></script>
     <script src="../controllers/productController.js"></script>
+    <script src="../controllers/cartController.js"></script>
 
         <!-- Bootstrap JavaScript Libraries -->
         <script

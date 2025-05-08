@@ -28,12 +28,18 @@
         <div id="navbar-container"></div>
 
         <script>
-            fetch('navbar.html')
+          fetch('navbar.html')
             .then(res => res.text())
             .then(html => {
-                document.getElementById('navbar-container').innerHTML = html;
+              document.getElementById('navbar-container').innerHTML = html;
+
+              // Carga dinámica del script del contador del carrito
+              const script = document.createElement('script');
+              script.src = '../controllers/navbarController.js';
+              document.body.appendChild(script);
             });
         </script>
+
 
         <div style="position: relative; width: 100%; text-align: center; color: white;">
             <!-- Imagen de fondo -->
@@ -88,9 +94,11 @@
                 document.getElementById('footer-container').innerHTML = html;
               });
           </script>
+        
     
         <script src="../controllers/auth_controllers.js"></script>
         <script src="../controllers/productsController.js"></script>
+        <script src="../controllers/cartController.js"></script>
        
         <script
             src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"

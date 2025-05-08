@@ -19,9 +19,16 @@
             <a href="./login.html" class="nav-link me-2">
                 <i class="fa-solid fa-user hov" style="font-size: 150%;" id="userIcon"></i>
             </a>
-            <a href="./cart.html" class="nav-link me-3">
-                <i class="fa-solid fa-cart-shopping" style="font-size: 150%;"></i>
-            </a>
+            
+            <div class="position-relative me-3">
+                <a href="./cart.html" class="nav-link">
+                    <i class="fa-solid fa-cart-shopping" style="font-size: 150%;"></i>
+                    <span id="cart-count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-dark">
+                        0
+                    </span>
+                </a>
+              </div>
+              
 
             <!-- Botón hamburguesa (visible solo en pantallas pequeñas) -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
