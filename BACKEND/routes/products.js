@@ -36,7 +36,14 @@ router.get('/filter', async (req, res) => {
     const { size, availability, name, minPrice, maxPrice, dateUploaded } = req.query;
     const filter = {};
 
-    if (size) filter.size = size;
+    if (size) {
+        if (size.includes(',')) {
+            filter.size = { $in: size.split(',') };
+        } else {
+            filter.size = size;
+        }
+    }
+    
     if (availability !== undefined) filter.availability = availability === 'true';
     if (name) filter.name = { $regex: name, $options: 'i' };
 

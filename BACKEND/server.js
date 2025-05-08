@@ -16,9 +16,9 @@ app.use(express.json());
 
 // Conexión a la BD
 
-//let mongoConnection = "mongodb+srv://admin:Mncb0219@myapp.cc6eeqb.mongodb.net/proyecto_final"; //Angel
+let mongoConnection = "mongodb+srv://admin:Mncb0219@myapp.cc6eeqb.mongodb.net/proyecto_final"; //Angel
 
-let mongoConnection = "mongodb+srv://admin:PasswordAdmin@myapp.jakwepm.mongodb.net/ProyectoIntegrador"; //Reilly 
+//let mongoConnection = "mongodb+srv://admin:PasswordAdmin@myapp.jakwepm.mongodb.net/ProyectoIntegrador"; //Reilly 
 
 let db = mongoose.connection;
 db.on('connecting', () => console.log('Conectando...'));

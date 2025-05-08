@@ -41,7 +41,7 @@
         <div class="container mt-5 mb-5">
             <h2 style="text-align: left;">Todos los productos</h2>
             <div class="filter-container">
-                <form action="">
+                <form action="" id="filtro-form">
                     <div class="d-flex justify-content-between mb-2">
                         <div class="filters">
                             <p class="me-3">Filtrar:</p>
@@ -90,6 +90,12 @@
                                             </div>
                                             <li><hr class="dropdown-divider"></li>
                                             <li>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="sizeXS">
+                                                    <label class="form-check-label" for="sizeXS">Talla XS</label>
+                                                </div>
+                                            </li>
+                                            <li>
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" id="sizeS">
                                                 <label class="form-check-label" for="sizeS">Talla S</label>
@@ -99,6 +105,18 @@
                                                 <div class="form-check">
                                                     <input class="form-check-input" type="checkbox" id="sizeM">
                                                     <label class="form-check-label" for="sizeM">Talla M</label>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="sizeL">
+                                                    <label class="form-check-label" for="sizeL">Talla L</label>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="sizeXL">
+                                                    <label class="form-check-label" for="sizeXL">Talla XL</label>
                                                 </div>
                                             </li>
                                         </ul>
@@ -153,6 +171,8 @@
                             <p class="ms-3">280 productos</p>
                         </div>
                     </div>
+                    <button type="submit" class="login-button">Aplicar filtros</button>
+
                 </form>                  
             </div>
 

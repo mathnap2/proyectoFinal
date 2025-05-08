@@ -13,7 +13,7 @@ function renderProducts(products) {
                     <img src="${product.imageUrl}" class="card-img-top" alt="${product.name}">
                     <div class="card-body px-0">
                         <h6 class="mb-1">${product.name}</h6>
-                        <strong>$ ${product.price} MXN</strong>
+                        <strong>$ ${product.price.toFixed(2)} MXN</strong>
                     </div>
                 </div>
             </a>
@@ -35,12 +35,60 @@ function renderProducts(products) {
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 }
 
+function filtrarProductos(event) {
+    event.preventDefault();
+
+    let query = [];
+
+    // Talla
+    const tallasSeleccionadas = [];
+    if (document.getElementById('sizeXS').checked) tallasSeleccionadas.push('XS');
+    if (document.getElementById('sizeS').checked) tallasSeleccionadas.push('S');
+    if (document.getElementById('sizeM').checked) tallasSeleccionadas.push('M');
+    if (document.getElementById('sizeL').checked) tallasSeleccionadas.push('L');
+    if (document.getElementById('sizeXL').checked) tallasSeleccionadas.push('XL');
+    // Agrega más si tienes XL, L, etc.
+    
+    if (tallasSeleccionadas.length > 0) {
+        query.push(`size=${tallasSeleccionadas.join(',')}`);
+    }
+    
+
+    // Disponibilidad
+    const disponibilidad = document.getElementById('inStock').checked ? 'true' :
+                           document.getElementById('outOfStock').checked ? 'false' : '';
+
+    // Precios
+    const minPrice = document.getElementById('priceMin').value;
+    const maxPrice = document.getElementById('priceMax').value;
+
+    // Armado de query
+    if (disponibilidad) query.push(`availability=${disponibilidad}`);
+    if (minPrice) query.push(`minPrice=${minPrice}`);
+    if (maxPrice) query.push(`maxPrice=${maxPrice}`);
+
+    const url = `/api/products/filter?${query.join('&')}`;
+
+    fetch(url)
+        .then(res => res.json())
+        .then(filtered => renderProducts(filtered))
+        .catch(err => console.error('Error al filtrar:', err));
+}
+
+
 document.addEventListener('DOMContentLoaded', () => {
+    // Mostrar todos los productos inicialmente
     fetch('/api/products')
         .then(response => response.json())
         .then(products => renderProducts(products))
         .catch(err => console.error('Error al obtener productos:', err));
+
+    // Activar el filtrado si existe el formulario
+    const form = document.getElementById('filtro-form');
+    if (form) form.addEventListener('submit', filtrarProductos);
 });
+
+
 
 
 /*

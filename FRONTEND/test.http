@@ -53,9 +53,9 @@ Content-Type: application/json
 {
   "name": "Impermeable Independent",
   "description": "Impermeable Independent blanco y gris con hoodie",
-  "availability": true,
+  "availability": false,
   "stock": 5,
-  "size": "M - L",
+  "size": ["M","L"],
   "price": "799.00",
   "dateUploaded": "2025-05-06T00:00:00.000Z",
   "timesSold": "0",
