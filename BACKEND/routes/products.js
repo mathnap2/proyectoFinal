@@ -68,6 +68,15 @@ router.get('/filter', async (req, res) => {
     }
 });
 
+router.get('/max-price', async (req, res) => {
+    try {
+      const maxProduct = await Product.findOne().sort({ price: -1 }).select('price');
+      res.json({ maxPrice: maxProduct?.price ?? 0 }); // 👈 Evita que sea undefined
+    } catch (error) {
+      res.status(500).json({ error: 'Error al obtener el precio máximo' });
+    }
+  });
+
 // Leer un producto por ID
 router.get('/:id', (req, res) => {
     Product.findById(req.params.id)
@@ -90,5 +99,6 @@ router.delete('/:id', (req, res) => {
 });
 
 
+  
 
 module.exports = router;

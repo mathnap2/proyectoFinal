@@ -78,6 +78,26 @@ function filtrarProductos(event) {
         .catch(err => console.error('Error al filtrar:', err));
 }
 
+function actualizarContadoresFiltros() {
+    // Contador para disponibilidad
+    const disponibilidadCheckboxes = [
+      document.getElementById('inStock'),
+      document.getElementById('outOfStock')
+    ];
+    const disponibilidadSeleccionadas = disponibilidadCheckboxes.filter(cb => cb.checked).length;
+    document.getElementById('selectedAvailabilityCount').textContent = `${disponibilidadSeleccionadas} seleccionados`;
+  
+    // Contador para tallas
+    const tallasCheckboxes = Array.from(document.querySelectorAll('input[id^="size"]'));
+    const tallasSeleccionadas = tallasCheckboxes.filter(cb => cb.checked).length;
+    document.getElementById('selectedSizeCount').textContent = `${tallasSeleccionadas} seleccionados`;
+  }
+  
+  // Listeners para checkboxes
+  document.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+    cb.addEventListener('change', actualizarContadoresFiltros);
+  });
+  
 
 document.addEventListener('DOMContentLoaded', () => {
     // Mostrar todos los productos inicialmente
@@ -89,6 +109,23 @@ document.addEventListener('DOMContentLoaded', () => {
     // Activar el filtrado si existe el formulario
     const form = document.getElementById('filtro-form');
     if (form) form.addEventListener('submit', filtrarProductos);
+    async function actualizarPrecioMaximo() {
+        try {
+          const response = await fetch('/api/products/max-price');
+          const data = await response.json();
+          const maxPrice = parseFloat(data.maxPrice).toFixed(2);
+          const priceSpan = document.getElementById('maxPriceDisplay');
+          if (priceSpan) {
+            priceSpan.textContent = `El precio más alto es $${maxPrice}`;
+          }
+        } catch (error) {
+          console.error('Error al obtener el precio máximo:', error);
+        }
+      }
+      
+      // Llama la función al cargar la página
+      actualizarPrecioMaximo();
+      
 });
 
 

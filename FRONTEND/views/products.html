@@ -55,7 +55,7 @@
                             
                                         <ul class="dropdown-menu p-3" aria-labelledby="availabilityDropdown" style="min-width: 250px;">
                                             <div class="d-flex justify-content-between mb-2">
-                                                <span>0 seleccionados</span>
+                                                <span id="selectedAvailabilityCount">0 seleccionados</span>
                                                 <a href="#" class="text-decoration-none text-reset"><u>Restablecer</u></a>
                                             </div>
                                             <li><hr class="dropdown-divider"></li>
@@ -85,7 +85,7 @@
                                         </button> 
                                         <ul class="dropdown-menu p-3" aria-labelledby="sizeDropdown" style="min-width: 250px;">
                                             <div class="d-flex justify-content-between mb-2">
-                                                <span>0 seleccionados</span>
+                                                <span id="selectedSizeCount">0 seleccionados</span>
                                                 <a href="#" class="text-decoration-none text-reset"><u>Restablecer</u></a>
                                             </div>
                                             <li><hr class="dropdown-divider"></li>
@@ -133,7 +133,8 @@
                                         </button>
                                         <ul class="dropdown-menu p-3" aria-labelledby="priceDropdown" style="min-width: 400px;">
                                             <div class="d-flex justify-content-between mb-2">
-                                                <span>El precio más alto es $3,999.00</span>
+                                                <span id="maxPriceDisplay">El precio más alto es $3,999.00</span>
+
                                                 <a href="#" class="text-decoration-none text-reset"><u>Restablecer</u></a>
                                             </div>
                                             <li><hr class="dropdown-divider"></li>
@@ -152,7 +153,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="sort"> 
+                        <!-- <div class="sort"> 
                             <p class="me-3">Ordenar por:</p>
                             <div class="dropdown">
                                 <button class="btn btn-link text-reset text-decoration-none p-0 dropdown-toggle" type="button" id="sortDropdown" data-bs-toggle="dropdown" aria-expanded="false">
@@ -167,7 +168,7 @@
                                     <li><a class="dropdown-item" href="#" data-value="az">Alfabéticamente, A-Z</a></li>
                                     <li><a class="dropdown-item" href="#" data-value="za">Alfabéticamente, Z-A</a></li>
                                 </ul>
-                            </div>
+                            </div> -->
                             <p id="totalProductos">Total: 0 productos</p>
                         </div>
                     </div>
