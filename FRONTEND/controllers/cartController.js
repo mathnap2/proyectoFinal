@@ -112,7 +112,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
 //Checkout con stripe
 document.addEventListener("DOMContentLoaded", async () => {
-    const stripe = Stripe("pk_test_51RMNWGCT5CSGGVxAQsbeYQL0TFcvgCMW4w23tULDnHxr3GwusSvQRLbMQCJIfwt4gO67UA652blA9vmPQsDV3saN00LlOOjk5i");
+    //Clave public stripe Reilly: pk_test_51RMNWGCT5CSGGVxAQsbeYQL0TFcvgCMW4w23tULDnHxr3GwusSvQRLbMQCJIfwt4gO67UA652blA9vmPQsDV3saN00LlOOjk5i
+
+    const stripe = Stripe(""); //Pegar aqui mi clave
     const elements = stripe.elements();
     const card = elements.create("card");
     card.mount("#card-element");
