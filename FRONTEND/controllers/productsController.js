@@ -20,13 +20,13 @@ function renderProducts(products) {
         `;
 
         container.appendChild(productCard);
-        
+        const totalElement = document.getElementById('totalProductos');
+if (totalElement) {
+  totalElement.textContent = `Total: ${products.length} productos`;
+}
 
     });
-    const totalElement = document.getElementById('totalProductos');
-if (totalElement) {
-  totalElement.textContent = `Total: ${productos.length} productos`;
-}
+    
 
 
     const observer = new IntersectionObserver((entries) => {
