@@ -20,7 +20,10 @@ function renderProducts(products) {
         `;
 
         container.appendChild(productCard);
+        
+
     });
+    document.getElementById('totalProductos').textContent = `Total: ${products.length} productos`;
 
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
