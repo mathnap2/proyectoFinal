@@ -1,10 +1,9 @@
+/*
 const express = require("express");
 const Stripe = require("stripe");
 const router = express.Router();
 
-const stripe = Stripe(""); //Pegar ahi mi clave
-
-
+const stripe = Stripe("sk_test_51RMNWGCT5CSGGVxAvvwZYXXE0T6xE22THJ4o4ZOXdUwzySpnU6vwz0OifoyLLc8RiI3Qiio2IWwpqmzE8mHpCE79008OCuzT4x");
 
 router.post("/create-payment-intent", async (req, res) => {
   try {
@@ -23,3 +22,4 @@ router.post("/create-payment-intent", async (req, res) => {
 });
 
 module.exports = router;
+*/

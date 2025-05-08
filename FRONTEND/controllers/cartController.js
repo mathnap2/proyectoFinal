@@ -1,3 +1,4 @@
+/*
 document.addEventListener("DOMContentLoaded", () => {
     const cart = JSON.parse(localStorage.getItem("cart")) || [];
     const cartItemsContainer = document.getElementById("cart-items");
@@ -113,8 +114,7 @@ document.addEventListener("DOMContentLoaded", () => {
 //Checkout con stripe
 document.addEventListener("DOMContentLoaded", async () => {
 
-
-    const stripe = Stripe(""); //Pegar aqui mi clave
+    const stripe = Stripe("pk_test_51RMNWGCT5CSGGVxAQsbeYQL0TFcvgCMW4w23tULDnHxr3GwusSvQRLbMQCJIfwt4gO67UA652blA9vmPQsDV3saN00LlOOjk5i");
     const elements = stripe.elements();
     const card = elements.create("card");
     card.mount("#card-element");
@@ -162,3 +162,4 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 });
   
+*/
