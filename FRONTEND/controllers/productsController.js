@@ -23,7 +23,11 @@ function renderProducts(products) {
         
 
     });
-    document.getElementById('totalProductos').textContent = `Total: ${products.length} productos`;
+    const totalElement = document.getElementById('totalProductos');
+if (totalElement) {
+  totalElement.textContent = `Total: ${productos.length} productos`;
+}
+
 
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
