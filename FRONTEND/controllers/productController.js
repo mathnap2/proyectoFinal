@@ -51,14 +51,14 @@ document.addEventListener("DOMContentLoaded", async () => {
       let value = parseInt(quantityInput.value);
       if (value > 1) {
         quantityInput.value = value - 1;
-        updateDisplayedPrice();
+        //updateDisplayedPrice();
       }
     });
 
     document.getElementById("increaseBtn").addEventListener("click", () => {
       let value = parseInt(quantityInput.value);
       quantityInput.value = value + 1;
-      updateDisplayedPrice();
+      //updateDisplayedPrice();
     });
 
     //updateDisplayedPrice(); // inicializa el precio con la cantidad 1

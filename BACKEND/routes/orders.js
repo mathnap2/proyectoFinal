@@ -32,6 +32,21 @@ router.post('/', authMiddleware, async (req, res) => {
       return res.status(400).json({ error: 'Total inválido' });
     }
 
+    // Validar stock para cada producto
+    for (const item of items) {
+      const productInDB = await Product.findById(item._id);
+      if (!productInDB) {
+        return res.status(404).json({ error: `Producto no encontrado: ${item.name}` });
+      }
+      if (productInDB.stock === 0) {
+        return res.status(400).json({ error: `El producto "${item.name}" está agotado.` });
+      }
+      if (item.quantity > productInDB.stock) {
+        return res.status(400).json({ error: `Cantidad solicitada para "${item.name}" excede el stock disponible.` });
+      }
+    }
+
+    // Si pasa las validaciones, actualizar el stock y crear el pedido
     const fixedItems = items.map(item => ({
       ...item,
       size: Array.isArray(item.size) ? item.size[0] : item.size
