@@ -1,13 +1,9 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <title>Cart</title>
-        <!-- Required meta tags -->
-        <meta charset="utf-8" />
-        <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1, shrink-to-fit=no"
-        />
+<head>
+  <title>Cart</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
         <!-- Bootstrap CSS v5.2.1 -->
         <link
@@ -23,57 +19,55 @@
         <script src="../controllers/env.js"></script>
 
         <script src="https://js.stripe.com/v3/"></script>
-        <script src="https://unpkg.com/lottie-web@5.9.4/build/player/lottie.min.js"></script>
     </head>
 
-    <body>
-        <div id="navbar-container"></div>
+<body>
+  <div id="navbar-container"></div>
+  <script>
+    fetch('navbar.html')
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById('navbar-container').innerHTML = html;
+      });
+  </script>
 
-        <script>
-            fetch('navbar.html')
-            .then(res => res.text())
-            .then(html => {
-                document.getElementById('navbar-container').innerHTML = html;
-            });
-        </script>
+  <div class="container my-5" id="cart-container">
 
-        <div class="container my-5" id="cart-container">
-            
+    <!-- Carrito -->
+    <div id="cart-items" class="mt-4"></div>
 
-            <div id="cart-items" class="mt-4"></div>
+    <!-- Resumen -->
+    <div class="text-end mb-4" id="cart-summary" style="display: none;">
+      <h5 class="fw-semibold" id="total-estimate">Total estimado: $0.00 MXN</h5>
+      <small class="text-muted">Impuestos y envío calculados en el siguiente paso</small>
+    </div>
 
-            <div class="text-end mb-4" id="cart-summary" style="display: none;">
-                <h5 class="fw-semibold" id="total-estimate">Total estimado: $0.00 MXN</h5>
-                <small class="text-muted">Impuestos y envío calculados en el siguiente paso</small>
-            </div>
-
-            
-            <div class="row">
-                <div class="col-md-6 offset-md-6">
-                <h5 class="mb-3">Pagar con tarjeta</h5>
-                <div id="card-element" class="form-control p-3 mb-3"></div>
-                <button class="btn btn-dark w-100" id="payment-button">Pagar ahora</button>
-                <a href="orders.html" class="btn btn-outline-dark mt-3">Ver mis pedidos</a>
-                </div>
-            </div>
-
-            
+    <!-- Checkout con tarjeta -->
+    <div id="checkout-section" style="display: none;">
+      <div class="row">
+        <div class="col-md-6 offset-md-6">
+          <h5 class="mb-3">Pagar con tarjeta</h5>
+          <div id="card-element" class="form-control p-3 mb-3"></div>
+          <button class="btn btn-dark w-100" id="payment-button">Pagar ahora</button>
+          <a href="orders.html" class="btn btn-outline-dark mt-3">Ver mis pedidos</a>
         </div>
+      </div>
+    </div>
 
-    
-    <div id="footer-container"></div>
-        <script>
-            fetch('footer.html')
-              .then(res => res.text())
-              .then(html => {
-                document.getElementById('footer-container').innerHTML = html;
-              });
-          </script>
-    
-    
-    <script src="../controllers/navbarController.js"></script>
-    <script src="../controllers/auth_controllers.js"></script>
-    <script src="../controllers/cartController.js"></script>
+  </div>
+
+  <div id="footer-container"></div>
+  <script>
+    fetch('footer.html')
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById('footer-container').innerHTML = html;
+      });
+  </script>
+
+  <script src="../controllers/navbarController.js"></script>
+  <script src="../controllers/auth_controllers.js"></script>
+  <script src="../controllers/cartController.js"></script>
 
 
         <!-- Bootstrap JavaScript Libraries -->
@@ -88,25 +82,5 @@
             integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
             crossorigin="anonymous"
         ></script>
-
-
-
-        <div id="loading-overlay" style="
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(255,255,255,0.9);
-            z-index: 9999;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            ">
-            <div id="lottie-loader" style="width: 150px; height: 150px;"></div>
-            <p class="mt-3 fs-5">Procesando tu pago...</p>
-        </div>
-
     </body>
 </html>

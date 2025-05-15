@@ -103,6 +103,16 @@ function actualizarContadoresFiltros() {
   document.querySelectorAll('input[type="checkbox"]').forEach(cb => {
     cb.addEventListener('change', actualizarContadoresFiltros);
   });
+
+  // Búsqueda desde el navbar
+document.getElementById('navbarSearchButton')?.addEventListener('click', () => {
+  const searchTerm = document.getElementById('navbarSearchInput').value.trim();
+
+  if (!searchTerm) return;
+
+  // Redirige a la página de productos con el término en query
+  window.location.href = `./products.html?search=${encodeURIComponent(searchTerm)}`;
+});
   
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -128,11 +138,28 @@ document.addEventListener('DOMContentLoaded', () => {
           console.error('Error al obtener el precio máximo:', error);
         }
       }
+
+      const urlParams = new URLSearchParams(window.location.search);
+  const searchQuery = urlParams.get('search');
+
+  if (searchQuery) {
+    fetch(`/api/products/filter?name=${encodeURIComponent(searchQuery)}`)
+      .then(res => res.json())
+      .then(products => renderProducts(products))
+      .catch(err => console.error('Error en búsqueda:', err));
+  } else {
+    fetch('/api/products')
+      .then(response => response.json())
+      .then(products => renderProducts(products))
+      .catch(err => console.error('Error al obtener productos:', err));
+  }
       
       // Llama la función al cargar la página
       actualizarPrecioMaximo();
       
 });
+
+
 
 
 
