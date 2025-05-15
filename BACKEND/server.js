@@ -44,5 +44,6 @@ app.listen(port, () => {
 });
 
 
-//let mongoConnection = "mongodb+srv://admin:Mncb0219@myapp.cc6eeqb.mongodb.net/proyecto_final"; //Mathias
+//MONGO_URI=mongodb+srv://admin:Mncb0219@myapp.cc6eeqb.mongodb.net/proyecto_final; //Mathias
 //let mongoConnection = "mongodb+srv://admin:123@myapp.wvoylgk.mongodb.net/ProyectoIntegrador"; //Angel
+//MONGO_URI=mongodb+srv://admin:PasswordAdmin@myapp.jakwepm.mongodb.net/ProyectoIntegrador
