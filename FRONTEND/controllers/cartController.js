@@ -40,7 +40,7 @@
                         </div>
                         <div class="col-md-4">
                             <h5>${product.name} Talla ${product.size}</h5>
-                            <p class="mb-0 text-muted">$ ${product.price.toFixed(2)} MXN</p>
+                            <p class="mb-0 text-muted">${product.price.toLocaleString('es-MX', { style: 'currency', currency: 'MXN' })} MXN</p>
                         </div>
                         <div class="col-md-3 text-center">
                             <label class="form-label">Cantidad</label>
@@ -53,7 +53,7 @@
                             </div>
                         </div>
                         <div class="col-md-2 text-end">
-                            <p class="fw-bold h5 mb-0">$ ${subtotal.toFixed(2)} MXN</p>
+                            <p class="fw-bold h5 mb-0">${subtotal.toLocaleString('es-MX', { style: 'currency', currency: 'MXN' })} MXN</p>
                         </div>
                         <div class="col-md-1 text-end">
                             <button class="btn btn-link text-dark p-0" onclick="removeItem(${index})">
@@ -65,7 +65,7 @@
                 cartItemsContainer.innerHTML += itemHTML;
             });
 
-            document.getElementById("total-estimate").textContent = `Total estimado: $ ${total.toFixed(2)} MXN`;
+            document.getElementById("total-estimate").textContent = `Total estimado: ${total.toLocaleString('es-MX', { style: 'currency', currency: 'MXN' })} MXN`;
             cartSummary.style.display = "block";
             checkoutSection.style.display = "block";
         }

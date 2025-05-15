@@ -42,7 +42,7 @@ function renderProducts(products) {
                     <img src="${product.imageUrl}" class="card-img-top" alt="${product.name}">
                     <div class="card-body px-0">
                         <h6 class="mb-1">${product.name}</h6>
-                        <strong>$ ${product.price.toFixed(2)} MXN</strong>
+                        <strong>${product.price.toLocaleString('es-MX', { style: 'currency', currency: 'MXN' })} MXN</strong>
                     </div>
                 </div>
             </a>
@@ -152,7 +152,7 @@ document.addEventListener('DOMContentLoaded', () => {
         try {
           const response = await fetch('/api/products/max-price');
           const data = await response.json();
-          const maxPrice = parseFloat(data.maxPrice).toFixed(2);
+          const maxPrice = parseFloat(data.maxPrice).toLocaleString('es-MX', { style: 'currency', currency: 'MXN' });
           const priceSpan = document.getElementById('maxPriceDisplay');
           if (priceSpan) {
             priceSpan.textContent = `El precio más alto es $${maxPrice}`;

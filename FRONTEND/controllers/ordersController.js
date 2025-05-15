@@ -30,10 +30,10 @@ document.addEventListener("DOMContentLoaded", async () => {
           <div class="flex-grow-1">
             <strong>${item.name} (Talla ${item.size})</strong><br />
             <small class="text-muted">Cantidad: ${item.quantity}</small><br />
-            <small>$ ${(item.price * item.quantity).toFixed(2)} MXN</small>
+            <small>${(item.price * item.quantity).toLocaleString('es-MX', { style: 'currency', currency: 'MXN' })} MXN</small>
           </div>
           <div class="text-end">
-            <p class="mb-1 fw-bold">$ ${(item.price * item.quantity).toFixed(2)}</p>
+            <p class="mb-1 fw-bold">${(item.price * item.quantity).toLocaleString('es-MX', { style: 'currency', currency: 'MXN' })}</p>
           </div>
         </div>
       `).join("");
@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             <h5 class="card-title">Pedido realizado el ${new Date(order.createdAt).toLocaleString()}</h5>
             ${itemsHTML}
             <div class="text-end mt-3">
-              <strong>Total: $ ${order.total.toFixed(2)} MXN</strong>
+              <strong>Total: ${order.total.toLocaleString('es-MX', { style: 'currency', currency: 'MXN' })} MXN</strong>
             </div>
           </div>
         </div>

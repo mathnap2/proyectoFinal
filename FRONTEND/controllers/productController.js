@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     const priceElement = document.getElementById("product-price");
     priceElement.dataset.price = product.price; // Guardamos el precio base
-    priceElement.textContent = `$${product.price.toFixed(2)} MXN`;
+    priceElement.textContent = `${product.price.toLocaleString('es-MX', { style: 'currency', currency: 'MXN' })} MXN`;
 
     document.getElementById("product-image").src = product.imageUrl;
     document.getElementById("product-description").textContent = product.description || product.name;
@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       const basePrice = parseFloat(priceElement.dataset.price);
       const quantity = parseInt(quantityInput.value);
       const total = basePrice * quantity;
-      priceElement.textContent = `MX$${total.toFixed(2)}`;
+      priceElement.textContent = `MX${total.toLocaleString('es-MX', { style: 'currency', currency: 'MXN' })}`;
     }
 
     */
