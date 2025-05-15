@@ -70,6 +70,39 @@ function logout() {
     window.location.href = './login.html';
 }
 
+function deleteAccount() {
+    const user = JSON.parse(localStorage.getItem('user'));
+    const token = localStorage.getItem('token');
+
+    if (!user || !token) {
+        alert('Usuario no autenticado');
+        return;
+    }
+
+    const confirmDelete = confirm("¿Estás seguro de que deseas eliminar tu cuenta? Esta acción no se puede deshacer.");
+
+    if (!confirmDelete) return;
+
+    fetch(`http://localhost:3000/api/users/${user.id}`, {
+        method: 'DELETE',
+        headers: {
+            'Authorization': `Bearer ${token}`
+        }
+    })
+    .then(res => {
+        if (!res.ok) throw new Error("Error al eliminar la cuenta");
+        return res.json();
+    })
+    .then(response => {
+        alert("Cuenta eliminada correctamente 👋");
+        localStorage.clear();
+        window.location.href = "./login.html";
+    })
+    .catch(err => {
+        alert(err.message || "Error inesperado al eliminar cuenta");
+    });
+}
+
 function updateUserInfo(event) {
     event.preventDefault();
 
