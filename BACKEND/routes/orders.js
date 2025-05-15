@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Order = require('../models/order');
+const Product = require('../models/product');
 const authMiddleware = require('../middleware/authMiddleware');
 
 // Obtener pedidos del usuario autenticado
@@ -44,6 +45,13 @@ router.post('/', authMiddleware, async (req, res) => {
     
 
     await newOrder.save();
+
+    // Actualizar stock de cada producto comprado
+    for (const item of fixedItems) {
+      await Product.findByIdAndUpdate(item._id, {
+        $inc: { stock: -item.quantity }
+      });
+    }
 
     res.status(201).json({ message: 'Pedido creado exitosamente', order: newOrder });
   } catch (error) {
