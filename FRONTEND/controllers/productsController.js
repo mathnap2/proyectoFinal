@@ -2,10 +2,39 @@ function renderProducts(products) {
     const container = document.getElementById('products-container');
     container.innerHTML = '';
 
+    // Obtener referencia al contenedor padre (el <section>)
+    const section = container.parentElement;
+
+    // Buscar si ya existe el título <h3> en el section
+    let title = section.querySelector('h3.mb-4');
+
+    if (products.length > 0) {
+        // Si hay productos y no existe el título, lo creamos
+        if (!title) {
+            title = document.createElement('h3');
+            title.className = 'mb-4';
+            title.textContent = 'Recién agregados';
+            section.insertBefore(title, container);
+        }
+    } else {
+        // Si no hay productos, removemos el título si existe
+        if (title) {
+            section.removeChild(title);
+        }
+        // Mostrar mensaje "Sin resultados"
+        container.innerHTML = `
+            <div class="col-12 text-center">
+                <p class="text-muted" style="text-align: center;">No se encontraron productos.</p>
+            </div>
+        `;
+        return; // Terminar función acá porque no hay productos que mostrar
+    }
+
+    // Renderizar productos normalmente
     products.forEach((product, index) => {
         const productCard = document.createElement('div');
         productCard.className = 'col fade-in';
-        productCard.style.transitionDelay = `${index * 100}ms`; // 100ms entre productos
+        productCard.style.transitionDelay = `${index * 100}ms`;
 
         productCard.innerHTML = `
             <a href="./product.html?id=${product._id}" class="text-decoration-none text-dark">
@@ -20,27 +49,21 @@ function renderProducts(products) {
         `;
 
         container.appendChild(productCard);
-        const totalElement = document.getElementById('totalProductos');
-if (totalElement) {
-  totalElement.textContent = `Total: ${products.length} productos`;
-}
-
     });
-    
 
-
+    // Animación fade-in
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
-                observer.unobserve(entry.target); 
+                observer.unobserve(entry.target);
             }
         });
     });
-
-    // Activar el observer después de renderizar
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 }
+
+
 
 
 //FILTRADO

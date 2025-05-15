@@ -7,6 +7,7 @@ const jwt = require('jsonwebtoken');
 // Registrar usuario
 router.post('/', async (req, res) => {
     try {
+        //console.log('REQ BODY:', req.body); //comentar
         const { name, email, password } = req.body;
 
         const existingUser = await User.findOne({ email });
@@ -32,7 +33,8 @@ router.post('/', async (req, res) => {
             token
         });
     } catch (error) {
-        res.status(500).json({ error: 'Error al registrar usuario' });
+        console.error('Error al registrar usuario:', error);
+        //res.status(500).json({ error: 'Error al registrar usuario' });
     }
 });
 
