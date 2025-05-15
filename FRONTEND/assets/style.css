@@ -229,3 +229,7 @@ footer {
     align-items: left;
     justify-content: left;
 }
+
+#loading-overlay {
+  transition: opacity 0.3s ease;
+}

@@ -16,13 +16,25 @@ document.addEventListener("DOMContentLoaded", async () => {
     document.getElementById("product-size").textContent = "Talla " + product.size;
 
     const priceElement = document.getElementById("product-price");
-    priceElement.dataset.price = product.price; // 👉 Guardamos el precio base
+    priceElement.dataset.price = product.price; // Guardamos el precio base
     priceElement.textContent = `$${product.price.toFixed(2)} MXN`;
 
     document.getElementById("product-image").src = product.imageUrl;
     document.getElementById("product-description").textContent = product.description || product.name;
-    document.getElementById("product-availability").textContent = `${product.availability ? 'Disponible' : 'No disponible'}`;
+    const availabilityElement = document.getElementById("product-availability");
 
+    if (product.availability) {
+      availabilityElement.textContent = 'Disponible';
+      availabilityElement.classList.remove("text-danger");
+      availabilityElement.classList.add("text-success");
+    } else {
+      availabilityElement.textContent = 'No disponible';
+      availabilityElement.classList.remove("text-success");
+      availabilityElement.classList.add("text-danger");
+    }
+
+
+    /*
     const quantityInput = document.getElementById("quantityInput");
 
     function updateDisplayedPrice() {
@@ -31,6 +43,8 @@ document.addEventListener("DOMContentLoaded", async () => {
       const total = basePrice * quantity;
       priceElement.textContent = `MX$${total.toFixed(2)}`;
     }
+
+    */
 
     // Eventos de + y -
     document.getElementById("decreaseBtn").addEventListener("click", () => {
@@ -47,7 +61,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       updateDisplayedPrice();
     });
 
-    updateDisplayedPrice(); // inicializa el precio con la cantidad 1
+    //updateDisplayedPrice(); // inicializa el precio con la cantidad 1
 
     // Agregar al carrito
     document.getElementById("add-to-cart-btn").addEventListener("click", () => {
@@ -62,18 +76,18 @@ document.addEventListener("DOMContentLoaded", async () => {
       }
 
       localStorage.setItem("cart", JSON.stringify(cart));
-      updateCartBadge(); // ✅ actualiza el número del carrito
+      updateCartBadge(); // actualiza el número del carrito
       alert("Producto agregado al carrito 🛒");
     });
 
-    updateCartBadge(); // ✅ al cargar la página, se muestra el número actual
+    updateCartBadge(); // al cargar la página, se muestra el número actual
   } catch (err) {
     console.error(err);
     alert("Hubo un error al cargar el producto");
   }
 });
 
-// ✅ Función para actualizar el número en el ícono del carrito
+// Función para actualizar el número en el ícono del carrito
 function updateCartBadge() {
   const cart = JSON.parse(localStorage.getItem("cart")) || [];
   const totalCount = cart.reduce((acc, item) => acc + item.quantity, 0);
